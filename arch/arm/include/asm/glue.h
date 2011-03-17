@@ -120,9 +120,15 @@
 #endif
 
 /*
- * Prefetch abort handler.  If the CPU has an IFAR use that, otherwise
- * use the address of the aborted instruction
+ *	Prefetch Abort Model
+ *	================
+ *
+ *	We have the following to choose from:
+ *	  legacy	- no IFSR, no IFAR
+ *	  v6		- ARMv6: IFSR, no IFAR
+ *	  v7		- ARMv7: IFSR and IFAR
  */
+
 #undef CPU_PABORT_HANDLER
 #undef MULTI_PABORT
 

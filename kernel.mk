@@ -1,6 +1,6 @@
 # Copyright (C) 2009 Motorola, Inc.
 #####################################################################
-#
+#  
 # Script creation notes by: David Ding (dding@motorola.com)
 #
 # The intention of creating this script is for Moto-Android platform
