@@ -132,19 +132,27 @@
 #undef CPU_PABORT_HANDLER
 #undef MULTI_PABORT
 
-#ifdef CONFIG_CPU_PABRT_IFAR
+#ifdef CONFIG_CPU_PABRT_LEGACY
 # ifdef CPU_PABORT_HANDLER
 #  define MULTI_PABORT 1
 # else
-#  define CPU_PABORT_HANDLER(reg, insn)	mrc p15, 0, reg, cr6, cr0, 2
+#  define CPU_PABORT_HANDLER legacy_pabort
 # endif
 #endif
 
-#ifdef CONFIG_CPU_PABRT_NOIFAR
+#ifdef CONFIG_CPU_PABRT_V6
 # ifdef CPU_PABORT_HANDLER
 #  define MULTI_PABORT 1
 # else
-#  define CPU_PABORT_HANDLER(reg, insn)	mov reg, insn
+#  define CPU_PABORT_HANDLER v6_pabort
+# endif
+#endif
+
+#ifdef CONFIG_CPU_PABRT_V7
+# ifdef CPU_PABORT_HANDLER
+#  define MULTI_PABORT 1
+# else
+#  define CPU_PABORT_HANDLER v7_pabort
 # endif
 #endif
 
